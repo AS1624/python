@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-options = webdriver.ChromeOptions()
 # options.add_argument('--headless')
 
 url = "https://docs.google.com/forms/u/1/d/e/1FAIpQLScgGWBSXz4IszkVjaQQAckirK_c8uaXa9-oN-9x4IcMOV1e3Q/formResponse?entry.754656146=never+gonna+give+you+up+-+Rick+Astley&entry.447877497=never+gonna+give+you+up+-+Rick+Astley&entry.625087713=never+gonna+give+you+up+-+Rick+Astley&emailAddress=seeman.avery@asdk12.net&dlut=1699496541730&fvv=1&partialResponse=%5Bnull%2Cnull%2C"+"%"+"22404859635932592667"+"%"+"22%5D&pageHistory=0&fbzx=404859635932592667"
@@ -18,7 +17,7 @@ times = 100
 
 
 def open_url():
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Firefox()
     driver.get(url)
 
     adress_box = driver.find_element(By.ID, "identifierId")
@@ -69,4 +68,4 @@ if __name__ == "__main__":
     # Wait for all processes to complete
     for process in processes:
         process.join()
-    print(len(emails) * times)
+    print(emails * times)
